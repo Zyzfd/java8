@@ -5,10 +5,6 @@ import java.util.List;
 public class Otzivy {
     public ArrayList<Otziv> Otzivy = new ArrayList<Otziv>();
 
-    public Object[] to_String() {
-        return Otzivy.toArray();
-    }
-
     public List<Otziv> Filter(String field, String value) {
         switch (field) {
             case "Звезды":

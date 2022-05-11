@@ -5,10 +5,6 @@ import java.util.List;
 public class Items {
     public ArrayList<Item> Items = new ArrayList<Item>();
 
-    public Object[] to_String() {
-        return Items.toArray();
-    }
-
     public List<Item> Filter(String field, String value) {
         switch (field) {
             case "Название":

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Item {
     String Product;
     int Cost;

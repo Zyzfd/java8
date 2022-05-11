@@ -5,10 +5,6 @@ import java.util.List;
 public class Clients {
     public ArrayList<Client> Clients = new ArrayList<Client>();
 
-    public Object[] to_String() {
-        return Clients.toArray();
-    }
-
     public List<Client> Filter(String field, String value) {
         switch (field) {
             case "ФИО":

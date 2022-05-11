@@ -2,8 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.List;
-import java.util.stream.Collectors;
-
 
 public class ListFrame extends JFrame{
     public ListFrame() {
@@ -89,22 +87,13 @@ public class ListFrame extends JFrame{
         }
         
         clientsModel = new DefaultListModel<Object>();
-        Object[] cli_to_str = clients.to_String();
-        for (int i = 0; i < cli_to_str.length; i++) {
-            clientsModel.addElement(cli_to_str[i]);
-        }
+        clients.Clients.forEach(p -> clientsModel.addElement(p));
 
         itemsModel = new DefaultListModel<Object>();
-        Object[] ite_to_str = items.to_String();
-        for (int i = 0; i < ite_to_str.length; i++) {
-            itemsModel.addElement(ite_to_str[i]);
-        }
+        items.Items.forEach(p -> itemsModel.addElement(p));
 
         otzivyModel = new DefaultListModel<Object>();
-        Object[] otz_to_str = otzivy.to_String();
-        for (int i = 0; i < otz_to_str.length; i++) {
-            otzivyModel.addElement(otz_to_str[i]);
-        }
+        otzivy.Otzivy.forEach(p -> otzivyModel.addElement(p));
 
         clientsPanel.setLayout(new FlowLayout());
         itemsPanel.setLayout(new FlowLayout());
@@ -155,10 +144,7 @@ public class ListFrame extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     clients.Clients.add(new Client(fioTextField_c.getText(), niknameTextField_c.getText(), sityTextField_c.getText(), emailTextField_c.getText(), Long.parseLong(phoneTextField_c.getText())));
                     clientsModel.clear();
-                    Object[] cli_to_str = clients.to_String();
-                    for (int i = 0; i < cli_to_str.length; i++) {
-                        clientsModel.addElement(cli_to_str[i]);
-                    }
+                    clients.Clients.forEach(p -> clientsModel.addElement(p));
                 }
             });
             clientsbuttonBlock.add(add_button_c);
@@ -168,10 +154,7 @@ public class ListFrame extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     clients.Clients.remove(clientsJList.getSelectedValue());
                     clientsModel.clear();
-                    Object[] cli_to_str = clients.to_String();
-                    for (int i = 0; i < cli_to_str.length; i++) {
-                        clientsModel.addElement(cli_to_str[i]);
-                    }
+                    clients.Clients.forEach(p -> clientsModel.addElement(p));
                 }
             });
             clientsbuttonBlock.add(del_button_c);
@@ -199,10 +182,7 @@ public class ListFrame extends JFrame{
         clientsUnfilterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 clientsModel.clear();
-                Object[] cli_to_str = clients.to_String();
-                for (int i = 0; i < cli_to_str.length; i++) {
-                    clientsModel.addElement(cli_to_str[i]);
-                }
+                clients.Clients.forEach(p -> clientsModel.addElement(p));
             }
         });
         clientsPanel.add(clientsFilterComboBox);
@@ -255,10 +235,7 @@ public class ListFrame extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     items.Items.add(new Item(productTextField_t.getText(), Integer.parseInt(costTextField_t.getText()), Integer.parseInt(codeTextField_t.getText()), Integer.parseInt(countTextField_t.getText()), Boolean.parseBoolean(saleTextField_t.getText())));
                     itemsModel.clear();
-                    Object[] ite_to_str = items.to_String();
-                    for (int i = 0; i < ite_to_str.length; i++) {
-                        itemsModel.addElement(ite_to_str[i]);
-                    }
+                    items.Items.forEach(p -> itemsModel.addElement(p));
                 }
             });
             itemsbuttonBlock.add(add_button_t);
@@ -268,10 +245,7 @@ public class ListFrame extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     items.Items.remove(itemsJList.getSelectedValue());
                     itemsModel.clear();
-                    Object[] ite_to_str = items.to_String();
-                    for (int i = 0; i < ite_to_str.length; i++) {
-                        itemsModel.addElement(ite_to_str[i]);
-                    }
+                    items.Items.forEach(p -> itemsModel.addElement(p));
                 }
             });
             itemsbuttonBlock.add(del_button_t);
@@ -299,10 +273,7 @@ public class ListFrame extends JFrame{
         itemsUnfilterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 itemsModel.clear();
-                Object[] ite_to_str = items.to_String();
-                for (int i = 0; i < ite_to_str.length; i++) {
-                    itemsModel.addElement(ite_to_str[i]);
-                }
+                items.Items.forEach(p -> itemsModel.addElement(p));
             }
         });
         itemsPanel.add(itemsFilterComboBox);
@@ -342,10 +313,7 @@ public class ListFrame extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     otzivy.Otzivy.add(new Otziv(Integer.parseInt(starsTextField_o.getText()), otzivTextArea_o.getText(), Integer.parseInt(codeTextField_o.getText())));
                     otzivyModel.clear();
-                    Object[] otz_to_str = otzivy.to_String();
-                    for (int i = 0; i < otz_to_str.length; i++) {
-                        otzivyModel.addElement(otz_to_str[i]);
-                    }
+                    otzivy.Otzivy.forEach(p -> otzivyModel.addElement(p));
                 }
             });
             otzivybuttonBlock.add(add_button_o);
@@ -355,10 +323,7 @@ public class ListFrame extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     otzivy.Otzivy.remove(otzivyJList.getSelectedValue());
                     otzivyModel.clear();
-                    Object[] otz_to_str = otzivy.to_String();
-                    for (int i = 0; i < otz_to_str.length; i++) {
-                        otzivyModel.addElement(otz_to_str[i]);
-                    }
+                    otzivy.Otzivy.forEach(p -> otzivyModel.addElement(p));
                 }
             });
             otzivybuttonBlock.add(del_button_o);
@@ -386,10 +351,7 @@ public class ListFrame extends JFrame{
         otzivyUnfilterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 otzivyModel.clear();
-                Object[] otz_to_str = otzivy.to_String();
-                for (int i = 0; i < otz_to_str.length; i++) {
-                    otzivyModel.addElement(otz_to_str[i]);
-                }
+                otzivy.Otzivy.forEach(p -> otzivyModel.addElement(p));
             }
         });
         otzivyPanel.add(otzivyFilterComboBox);
@@ -409,7 +371,7 @@ public class ListFrame extends JFrame{
             public void run() {
                 JFrame.setDefaultLookAndFeelDecorated(false);
                 ListFrame frame = new ListFrame();
-                //frame.setResizable(false);
+                frame.setResizable(false);
                 frame.setPreferredSize(new Dimension(1300, 500));
                 frame.pack();
                 frame.setVisible(true);
